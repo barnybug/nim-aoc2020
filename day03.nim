@@ -1,14 +1,12 @@
 import sequtils
 
 proc trees(lines: openarray[string], xstride: int, ystride: int = 1): int =
-    var ret = 0
     for y, item in lines.pairs:
         if y mod ystride != 0:
             continue
         let x = (y div ystride * xstride) mod len(item)
         if item[x] == '#':
-            inc ret
-    return ret
+            inc result
 
 let lines = toSeq(lines "input03.txt")
 proc part1: int =

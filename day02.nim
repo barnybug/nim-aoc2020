@@ -4,21 +4,23 @@ type Rule = tuple[a: int, b: int, letter: char, pw: string]
 
 proc parseLine(line: string): Rule =
     let parts = split(line, {' ', ':', '-'})
-    let a = parseInt(parts[0])
-    let b = parseInt(parts[1])
-    let letter = parts[2][0]
-    let pw = parts[4]
-    return (a, b, letter, pw)
+    result.a = parseInt(parts[0])
+    result.b = parseInt(parts[1])
+    result.letter = parts[2][0]
+    result.pw = parts[4]
 
-proc valid1(rule: Rule): bool =
-    let c = count(rule.pw, rule.letter)
-    return rule.a <= c and c <= rule.b
+let lines = toSeq(lines "input02.txt").map(parseLine)
+proc part1: int =
+    for rule in lines.items:
+        let c = rule.pw.count(rule.letter)
+        if c in rule.a..rule.b: inc result 
 
-proc valid2(rule: Rule): bool =
-    let a = rule.pw[rule.a-1]
-    let b = rule.pw[rule.b-1]
-    return (a == rule.letter) != (b == rule.letter)
+proc part2: int =
+    for rule in lines.items:
+        let a = rule.pw[rule.a-1]
+        let b = rule.pw[rule.b-1]
+        if (a == rule.letter) != (b == rule.letter):
+            inc result
 
-var lines = toSeq(lines "input02.txt").map(parseLine)
-echo count(lines.map(valid1), true)
-echo count(lines.map(valid2), true)
+echo part1()
+echo part2()
