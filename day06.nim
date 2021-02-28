@@ -1,11 +1,11 @@
-import intsets, sequtils, strutils
+import sequtils, strutils
 
 const groups = readFile("input06.txt").split("\n\n")
 
-proc groupSet(group: string): IntSet =
+proc groupSet(group: string): set[char] =
     for c in group:
         if c != '\n':
-            result.incl(int(c))
+            result.incl(c)
 
 proc part1: int =
     for group in groups:
@@ -14,7 +14,7 @@ proc part1: int =
 proc part2: int =
     for group in groups:
         let sets = group.split("\n").map(groupSet)
-        let combined = foldl(sets, intersection(a, b))
+        let combined = foldl(sets, a * b)
         result += combined.len
 
 echo part1()
