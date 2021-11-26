@@ -16,5 +16,7 @@ proc part2: int =
         if seat_ids[i]+2 == seat_ids[i+1]:
             return seat_ids[i]+1
     
-echo part1()
-echo part2()
+proc run* =
+    echo part1()
+    echo part2()
+

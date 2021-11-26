@@ -13,7 +13,7 @@ proc floatingMasks(mask: string): seq[int] =
 
 proc solve: Answer =
     var memory, memory2: Table[int, int]
-    var ones, zeros, mask, address, value: int
+    var ones, mask, address, value: int
     var floating: seq[int]
     var bitmask: string
     for line in lines "input14.txt":
@@ -32,4 +32,6 @@ proc solve: Answer =
     for value in memory2.values:
         result.part2 += value
 
-echo solve()
+proc run* =
+    echo solve()
+

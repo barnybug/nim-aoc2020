@@ -23,4 +23,5 @@ proc solve(preamble: int = 25): Answer =
             if s > result.part1:
                 break # bailout early
 
-echo solve()
+proc run* =
+    echo solve()

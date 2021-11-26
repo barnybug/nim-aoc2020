@@ -65,5 +65,6 @@ proc part2: int =
     let (result1, result2) = play(player1, player2)
     return win_score(result1, result2)
 
-echo part1()
-echo part2()
+proc run* =
+    echo part1()
+    echo part2()

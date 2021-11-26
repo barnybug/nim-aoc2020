@@ -64,4 +64,6 @@ proc solve: Answer =
         if rules[answer].name.startswith("departure "):
             result.part2 *= your_ticket[i]
 
-echo solve()
+proc run* =
+    echo solve()
+

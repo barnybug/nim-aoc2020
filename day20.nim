@@ -134,13 +134,11 @@ proc render(o: Orient): Tile =
     result.grid = o.tile.grid
     if o.o >= 4:
         result.flip
-        # echo "flipped:\n", result
     for _ in 1..(o.o mod 4):
         result.rotate
-        # echo "rotation:\n", result
 
-proc `$`(o: Orient): string =
-    &"{o.o} {o.left} {o.top} {o.right} {o.bottom}\n{o.render}"
+# proc `$`(o: Orient): string =
+#     &"{o.o} {o.left} {o.top} {o.right} {o.bottom}\n{o.render}"
 
 iterator orientations(tile: Tile): Orient =
     var result: Orient = (tile.left, tile.top, tile.right, tile.bottom, tile, 0)
@@ -183,11 +181,6 @@ proc rotate(board: Board): Board =
         for x, b in row:
             result[x][row.high-y] = b
 
-proc flip(board: Board): Board =
-    for i, row in board:
-        for j in 0..row.high:
-            result[i][j] = row[^(j+1)]
-
 proc combine_layout(layout: Layout): Board =
     for y, row in layout:
         for x, orient in row:
@@ -216,11 +209,11 @@ proc count(board: Board): int =
         for b in row:
             if b: inc result
 
-proc `$`(board: Board): string =
-    for row in board:
-        for b in row:
-            result &= (if b: "#" else: ".")
-        result &= "\n"
+# proc `$`(board: Board): string =
+#     for row in board:
+#         for b in row:
+#             result &= (if b: "#" else: ".")
+#         result &= "\n"
 
 proc solve: Answer =
     let (edges, corners) = edges_and_corners(tiles)
@@ -279,7 +272,9 @@ proc solve: Answer =
 
     result.part2 = board.count - (snakes * 15)
 
-echo solve()
+proc run* =
+    echo solve()
+
 
 # def combine_tiles(layout, size):
 #     combined = np.zeros((8 * size, 8 * size), np.int)

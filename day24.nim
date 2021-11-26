@@ -45,5 +45,6 @@ proc part2: int =
         grid = newgrid
     return len(grid)
 
-echo part1()
-echo part2()
+proc run* =
+    echo part1()
+    echo part2()

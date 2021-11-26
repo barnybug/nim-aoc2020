@@ -66,5 +66,6 @@ proc part2: string =
         if success:
             return perm.join(",")
 
-echo part1()
-echo part2()
+proc run* =
+    echo part1()
+    echo part2()

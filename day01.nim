@@ -6,5 +6,10 @@ proc solve(numbers: openarray[int], n: int): int =
             return prod(combination)
 
 var numbers = toSeq(lines "input01.txt").map(parseInt)
-echo solve(numbers, 2)
-echo solve(numbers, 3)
+
+proc part1: int = solve(numbers, 2)
+proc part2: int = solve(numbers, 3)
+
+proc run* =
+    echo part1()
+    echo part2()

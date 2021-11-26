@@ -46,6 +46,8 @@ proc part2: int =
     for line in lines "input18.txt":
         result += parse(line.newStringStream, true)
 
-echo part1()
-echo part2()
+proc run* =
+    echo part1()
+    echo part2()
+
 

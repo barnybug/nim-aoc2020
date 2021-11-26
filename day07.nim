@@ -58,5 +58,6 @@ proc part2: int =
     
     return resolve("shiny gold")-1
 
-echo part1()
-echo part2()
+proc run* =
+    echo part1()
+    echo part2()

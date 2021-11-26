@@ -38,4 +38,5 @@ proc part1: int =
     let k = modlog(7, a, m)
     return powmod(b, k, m)
 
-echo part1()
+proc run* =
+    echo part1()

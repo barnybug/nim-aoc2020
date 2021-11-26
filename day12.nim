@@ -58,5 +58,6 @@ proc part1: int =
 proc part2: int =
     run(N + E * 10, true)
 
-echo part1()
-echo part2()
+proc run* =
+    echo part1()
+    echo part2()

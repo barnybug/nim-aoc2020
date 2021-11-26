@@ -18,5 +18,7 @@ proc part2: int =
     trees(lines, 7) *
     trees(lines, 1, 2)
 
-echo part1()
-echo part2()
+proc run* =
+    echo part1()
+    echo part2()
+

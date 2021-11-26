@@ -53,5 +53,6 @@ proc part2: int =
         nn.add n
     return chineseRemainder(nn, aa)
 
-echo part1()
-echo part2()
+proc run* =
+    echo part1()
+    echo part2()

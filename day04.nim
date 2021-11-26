@@ -10,14 +10,14 @@ proc fieldSet(p: Passport): HashSet[string] =
 
 let fieldsRequired = toHashSet(["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"])
 
-proc parse(line: string): Passport =
+proc parse(line: string): Passport {.locks: 0.} =
     result.fields = line.splitWhitespace.map do (rule: string) -> Field:
         let p = rule.split(':')
         (p[0], p[1])
 
-proc required(p: Passport): bool = len(fieldsRequired - p.fieldSet) == 0
+proc required(p: Passport): bool {.locks: 0.} = len(fieldsRequired - p.fieldSet) == 0
 
-proc valid(f: Field): bool =
+proc valid(f: Field): bool {.locks: 0.} =
     case f.name:
         of "byr":
             result = parseInt(f.value) in 1920..2002
@@ -45,13 +45,13 @@ proc fieldsValid(p: Passport): bool =
         if not field.valid: return false
     return true
 
-let passports = (readFile "input04.txt").split("\n\n").map(parse)
-
 proc solve: Answer =
+    let passports = (readFile "input04.txt").split("\n\n").map(parse)
     for pp in passports:
         if pp.required:
             inc result.part1
             if pp.fieldsValid:
                 inc result.part2
 
-echo solve()
+proc run* =
+    echo solve()

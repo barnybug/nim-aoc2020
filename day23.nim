@@ -40,5 +40,6 @@ proc part2: int =
     let nodes = play(cups, 10000000)
     result = nodes[1] * nodes[nodes[1]]
 
-echo part1()
-echo part2()
+proc run* =
+    echo part1()
+    echo part2()

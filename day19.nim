@@ -43,5 +43,6 @@ proc part2: int =
         if message.match(regex):
             inc result
 
-echo part1()
-echo part2()
+proc run* =
+    echo part1()
+    echo part2()

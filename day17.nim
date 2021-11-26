@@ -34,5 +34,7 @@ proc solve(dims: int): int =
 proc part1: int = solve(3)
 proc part2: int = solve(4)
 
-echo part1()
-echo part2()
+proc run* =
+    echo part1()
+    echo part2()
+

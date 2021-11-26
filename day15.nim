@@ -11,5 +11,7 @@ const input = [0,5,4,1,10,14,7]
 proc part1: int = solve(input, 2020)
 proc part2: int = solve(input, 30000000)
 
-echo part1()
-echo part2()
+proc run* =
+    echo part1()
+    echo part2()
+

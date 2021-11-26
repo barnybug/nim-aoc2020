@@ -1,4 +1,4 @@
-import math, sequtils, strutils
+import sequtils, strutils
 
 type Rule = tuple[a: int, b: int, letter: char, pw: string]
 
@@ -22,5 +22,6 @@ proc part2: int =
         if (a == rule.letter) != (b == rule.letter):
             inc result
 
-echo part1()
-echo part2()
+proc run* =
+    echo part1()
+    echo part2()

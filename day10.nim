@@ -37,5 +37,7 @@ proc part2: int =
     for i in ones:
         result *= combs[i]
 
-echo part1()
-echo part2()
+proc run* =
+    echo part1()
+    echo part2()
+
